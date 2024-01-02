@@ -1,0 +1,27 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Liste des catégory{% endblock %}
+
+{% block body %} 
+{% for i in 1..3 %}
+    <div data-controller="faq">
+	    <h2 data-action="click->faq#toggle">Question{{i}}</h2>
+	    <div data-faq-target="answer" style="display: none;">
+		    loreùmmdskdfkjqslklkqsklklds
+		        desds
+		        desds
+		        des
+	    </div>
+    </div>
+
+{% endfor %}
+
+    <h1>Liste des category<h1>
+    {# {{dump(category)}} #}
+    <a class="btn btn-primary" href = "{{path('app_category_new')}}">Nouvel categorie</a>
+    {% for categories in category %}
+        <h2>
+            <a class="btn btn-primary" href = "{{path('app_category_show',{id : categories.id}) }}"> {{categories.name}} </a>
+        </h2>
+    {% endfor %}
+{% endblock %}
